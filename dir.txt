@@ -1,0 +1,10 @@
+Displays a list of files and subdirectories in a directory in long listing format.
+
+DIR [drive:][path][filename]
+
+  [drive:][path][filename]
+              Specifies drive, directory, and/or files to list.
+
+Type DIR to display a list of files in the current working directory.
+
+Type DIR followed by drive, path and/or filename to specify drive, directory and/or files to list.

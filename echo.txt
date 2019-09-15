@@ -1,0 +1,5 @@
+Displays messages followed by a newline.
+
+  ECHO [message]
+
+Typing ECHO without parameters will display a new line.

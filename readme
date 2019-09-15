@@ -1,0 +1,116 @@
+This is a simple linux-based python command line interpreter. Its intended purpose is to be used as an interactive shell script command proccessor. It includes a command-line editor (see The Commmand-line Editor), word completion (see Completion and Listing) and a python-like syntax.
+
+Editing - These section describe how the shell edits text.
+
+	The Command-line Editor
+
+	Command-line input can be edited using key sequence just like how input is edited in common text editors like vim. Since this is a simple shell the editor is always active.
+
+	The shell alwways binds the arrow keys as follows:
+
+		Down - down history
+		Up- up history
+		Left - backward char
+		right - forward char
+
+	Completion and Listing
+
+	The shell is also able to complete words when given a unique abbreviation. Type part of a word and hit the tab key to have the shell complete the word. If there is more than one word the contains the unique abbreviation given, the shell will return the all matching words. If no abbreviation is given the shell will return all words in the current directory.
+
+	Since this is a simple shell the completion does not diffrentiate between files and directories. It always returns the completed word followed by " ". Also the completion is only applied to the first word that is not a command.
+
+Commands - This section describes how the shell executes commands and deals with their input & output.
+
+	Simple Commands & Background Proccess
+
+	A simple command is a sequence of words, the first of which specifies the command to be executed. By default when a command is executed, the shell waits for the command to terminate before it can run a new command. A command can be executed as a background process i.e., without waiting for it to terminate by follwing the command with an "&".
+
+	Builtin and Non Builtin Command Execution
+
+	Builtin commands are executed within the shell using custom python based functions (to see all builtin commands see Builtin Commands).
+
+	When a command to be executed is found not to be a builtin command the shell attempts to execute the command as a child process via os.execvp and shell forking.
+
+	Input/Output
+
+	In this simple shell only standard output can be redirected.  By default the standard output of an executed command is displayed on screen.
+
+	To redirect the output to a new file, follow the command with " > " followed by the file name. 
+	To redirect the output to an existing file, follow the command with " >> " followed by the file name. 
+
+
+	Builtin Commands
+		
+	For information on a specific command, type HELP command-name
+
+	CD    Displays the name of or changes the current directory.
+
+		CD [/D] [drive:][path]
+		CD [..]
+
+		  ..   Specifies that you want to change to the parent directory.
+
+		Type CD to display the current directory.
+
+		If Command Extensions are enabled CD changes as follows:
+
+		The current directory string is converted to use the same case as
+		the on disk names.  So CD C:\TEMP would actually set the current
+		directory to C:\Temp if that is the case on disk.
+
+		CD command does not treat spaces as delimiters, so it is possible to
+		CD into a subdirectory name that contains a space without surrounding
+		the name with quotes.  For example:
+
+		    cd \winnt\profiles\username\programs\start menu
+
+		is the same as:
+
+		    cd "\winnt\profiles\username\programs\start menu"
+
+	which is what you would have to type if extensions were disabled.
+
+	CLR    Clears the screen.
+
+		Type CLR to clear the screen.
+
+	DIR    Displays a list of files and subdirectories in a directory in long listing form.
+
+		DIR [drive:][path][filename]
+
+		  [drive:][path][filename]
+		              Specifies drive, directory, and/or files to list.
+
+		Type DIR to display a list of files in the current working directory.
+
+		Type DIR followed by drive, path and/or filename to specify drive, directory and/or files to list.
+
+	ENVIRON    List all the environment strings.
+
+		ENVIRON [variable]
+
+		   [variable]   
+		      Specifies the variable and string value.
+
+		Type ENVIRON to display a list of all environmental varialbles and their string values.
+
+	ECHO    Displays messages.
+
+		Write arguments to the standard output.
+	    
+	    Display the ARGs, separated by a single space character and followed by a
+	    newline, on the standard output.
+
+	HELP    Displays manual and provides information on builtin commands.
+
+		HELP [command]
+
+		    command - displays help information on that command.
+
+	PAUSE    Suspends processing of a batch file and displays a message.
+
+	    Press 'Enter' to continue . . .
+
+	QUIT    Quits the shell.
+
+		Type QUIT to quit the shell.

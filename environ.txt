@@ -1,0 +1,8 @@
+Displays a list of all environmental variables and their string values.
+
+ENVIRON [variable]
+
+   [variable]   
+      Specifies the variable and string value.
+
+Type ENVIRON to display a list of all environmental varialbles and their string values.

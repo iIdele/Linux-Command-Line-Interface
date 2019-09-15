@@ -1,0 +1,3 @@
+Quits the shell.
+
+Type QUIT to quit the shell.

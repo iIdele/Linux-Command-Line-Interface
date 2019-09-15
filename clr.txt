@@ -1,0 +1,3 @@
+Clears the screen.
+
+Type CLR to clear the screen.
